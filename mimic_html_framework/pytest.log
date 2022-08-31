@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/dell/Downloads/internhsip1/task3_html/training/html/html_solution
+plugins: lazy-fixture-0.6.3
+collected 15 items
+
+test_html_framework.py ...............                                   [100%]
+
+============================== 15 passed in 0.03s ==============================

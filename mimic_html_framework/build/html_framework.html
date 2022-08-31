@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>html_framework API documentation</title>
+<meta name="description" content="This module implement html framework that initiate, append, render, and find elements" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>html_framework</code></h1>
+</header>
+<section id="section-intro">
+<p>This module implement html framework that initiate, append, render, and find elements</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39; This module implement html framework that initiate, append, render, and find elements &#39;&#39;&#39;
+class TagNameError(Exception):
+    &#34;&#34;&#34; Create custom exception
+
+    Args:
+        Exception (class): Base Exception class
+
+    Returns:
+        str: Exception message
+    &#34;&#34;&#34;
+    valid_tag_names = [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;, &#39;p&#39;, &#39;strong&#39;, &#39;abbr&#39;, &#39;a&#39;, &#39;big&#39;,
+                    &#39;b&#39;, &#39;html&#39;, &#39;head&#39;, &#39;body&#39;, &#39;form&#39;, &#39;input&#39;, &#39;em&#39;, &#39;dd&#39;, &#39;dl&#39;, &#39;dt&#39;, &#39;i&#39;,
+                    &#39;li&#39;, &#39;ol&#39;, &#39;marquee&#39;, &#39;strike&#39;, &#39;table&#39;, &#39;th&#39;, &#39;td&#39;, &#39;tr&#39;, &#39;tt&#39;, &#39;u&#39;, &#39;title&#39;,
+                    &#39;!--&#39;, &#39;address&#39;, &#39;article&#39;, &#39;aside&#39;, &#39;audio&#39;, &#39;bdi&#39;, &#39;bdo&#39;, &#39;blockquote&#39;,
+                    &#39;button&#39;, &#39;canvas&#39;, &#39;caption&#39;, &#39;cite&#39;, &#39;code&#39;, &#39;colgroup&#39;, &#39;text&#39;, &#39;data&#39;,
+                    &#39;datalist&#39;, &#39;del&#39;, &#39;details&#39;, &#39;dfn&#39;, &#39;dialog&#39;, &#39;div&#39;, &#39;em&#39;, &#39;embed&#39;, &#39;fieldset&#39;,
+                    &#39;figure&#39;,  &#39;figcaption&#39;, &#39;footer&#39;, &#39;header&#39;, &#39;i&#39;, &#39;iframe&#39;, &#39;ins&#39;, &#39;kbd&#39;,
+                    &#39;legend&#39;, &#39;label&#39;, &#39;main&#39;, &#39;map&#39;, &#39;mark&#39;, &#39;meter&#39;, &#39;nav&#39;, &#39;noscript&#39;, &#39;object&#39;,
+                    &#39;optgroup&#39;, &#39;option&#39;, &#39;output&#39;, &#39;picture&#39;, &#39;pre&#39;, &#39;progress&#39;, &#39;q&#39;, &#39;rp&#39;, &#39;rt&#39;,
+                    &#39;ruby&#39;, &#39;s&#39;, &#39;samp&#39;, &#39;script&#39;, &#39;section&#39;, &#39;select&#39;, &#39;small&#39;, &#39;span&#39;, &#39;style&#39;,
+                    &#39;sub&#39;, &#39;summary&#39;, &#39;sup&#39;, &#39;svg&#39;, &#39;tbody&#39;, &#39;template&#39;, &#39;textarea&#39;, &#39;tfoot&#39;,
+                    &#39;thead&#39;, &#39;time&#39;, &#39;ul&#39;, &#39;var&#39;, &#39;video&#39;, &#39;wbr&#39;, &#39;!DOCTYPE&#39;, &#39;br&#39;, &#39;embed&#39;, &#39;hr&#39;,
+                    &#39;img&#39;, &#39;link&#39;, &#39;input&#39;, &#39;menu&#39;, &#39;area&#39;, &#39;source&#39;, &#39;base&#39;, &#39;col&#39;, &#39;meta&#39;,
+                    &#39;param&#39;, &#39;track&#39;]
+
+    def __init__(self, tag_name, *args):
+        &#34;&#34;&#34; Construct attributes for the TagNameError object
+
+        Args:
+            tag_name (str): HTML tag name
+            args (tuple): The tuple of arguments given to the exception constructor
+        &#34;&#34;&#34;
+        # Call the base class constructor with the parameters it needs
+        super().__init__(args)
+        self.tag_name = tag_name
+
+    def __str__(self):
+        &#34;&#34;&#34; Return Exception message
+
+        Returns:
+            str: Exception message
+        &#34;&#34;&#34;
+        return f&#39;Tag name {self.tag_name} is not valid, please specify a valid tag name&#39;
+
+class SameIdException(Exception):
+    &#34;&#34;&#34; Create custom exception
+
+    Args:
+        Exception (class): Base Exception class
+    &#34;&#34;&#34;
+    pass
+
+class HTMLElement:
+    &#34;&#34;&#34; A class to act as HTML framework that initiate, append, render, and find elements &#34;&#34;&#34;
+    def __init__(self, tag_name, attrs=None, val=None):
+        &#34;&#34;&#34; Construct all the necessary attributes for the HTMLElement object
+
+        Args:
+            tag_name (str): HTML tag name
+            attrs (dict, optional): HTML element attributes. Defaults to None.
+            val (HTMLElement | str | list): HTML element values. Defaults to None.
+
+        Raises:
+            TagNameError: Raise custom exception when having invalid tag name
+        &#34;&#34;&#34;
+        if tag_name not in TagNameError.valid_tag_names:
+            raise TagNameError(tag_name)
+        self.tag_name = tag_name
+        self.attrs = attrs or {}
+        self.value = []
+        self.elem_id = attrs.get(&#39;id&#39;, None)
+
+        self.handle_element_value(self, val)
+
+    @classmethod
+    def append(cls, element, val):
+        &#34;&#34;&#34;Append val to the given element
+
+        Args:
+            element (HTMLElement): HTML element to append to
+            val (str | HTMLElement | list): HTML element value to be appended
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+        &#34;&#34;&#34;
+        cls.handle_element_value(element, val)
+
+    @classmethod
+    def handle_element_value(cls, element, val):
+        &#34;&#34;&#34;Handle appending a value(or values) to the given element
+        considering value data type and custom exceptions
+
+        Args:
+            element (HTMLElement): HTML element to append to
+            val (str | HTMLElement | list): HTML element value to be appended
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+        &#34;&#34;&#34;
+        if not isinstance(val, list):
+            val = [val] if val else []
+        for appended_elem in val:
+            if isinstance(appended_elem, str):
+                continue
+            if list_elems_with_id:= cls.find_elements_by_id(appended_elem, element.elem_id):
+                if list_elems_with_id:
+                    raise SameIdException(
+                        f&#34;Shouldn&#39;t have same id value {element.elem_id} for more than one element&#34;)
+
+        if isinstance(val, list):
+            element.value.extend(val)
+        else:
+            element.value = val
+
+    @classmethod
+    def render(cls, element, level=0):
+        &#34;&#34;&#34; Traverse the given element to create HTML DOM syntax
+
+        Args:
+            element (HTMLElement | str | list): HTML element to start traverse from
+            level (int, optional): HTML Element level in tree. Defaults to 0.
+
+        Returns:
+            str: HTML syntax tree
+        &#34;&#34;&#34;
+        if not element:
+            return None
+
+        indentation = &#39; &#39;*4*level
+        html = &#39;&#39;
+        if level == 0:
+            html += &#34;&lt;!DOCTYPE html&gt;\n&#34;
+        html += f&#39;{indentation}&lt;{element.tag_name}&#39;
+
+        if element.attrs:
+            html +=&#39;&#39;.join(f&#34; {key}=&#39;{val}&#39;&#34;
+                    if isinstance(val, str) else f&#34; {key}={val}&#34;
+                        for key, val in element.attrs.items())
+
+        html+= &#39;&gt;&#39;
+        for child in element.value:
+            html+= f&#39;{child}&#39; if isinstance(child, str) else f&#39;\n{cls.render(child, level+1)}&#39;
+        if len(element.value) &gt;= 1 and isinstance(element.value[0], cls):
+            html += f&#39;{indentation}&lt;/{element.tag_name}&gt;\n&#39;
+        else:
+            html += f&#39;&lt;/{element.tag_name}&gt;\n&#39;
+
+        if level == 0:
+            print(html)
+        return html
+
+    @classmethod
+    def render_html_file(cls, element, file_name):
+        &#34;&#34;&#34; Render HTML syntax created into an html file
+
+        Args:
+            element (HTMLElement)
+        &#34;&#34;&#34;
+        try:
+            with open(file_name, &#39;w&#39;, encoding = &#39;utf-8&#39;) as file:
+                file.write(cls.render(element))
+
+        except (FileNotFoundError, IOError) as error:
+            print(f&#34;{type(error)}: {error}&#34;)
+
+    @classmethod
+    def find_elements_by_attr(cls, elem, attr_key, attr_val):
+        &#34;&#34;&#34; Returns all html elements having the same attribute value for a specific key attribute
+
+        Args:
+            elem (HTMLElement): HTML element
+            attr_key (str): attribute key
+            attr_val (str | number): attribute value
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        if not isinstance(elem, HTMLElement):
+            return []
+        list_elem = []
+        if (attr_key, attr_val) in elem.attrs.items():
+            list_elem.append(elem)
+
+        for child in elem.value:
+            if not isinstance(child, str):
+                list_elem.extend(cls.find_elements_by_attr(child, attr_key, attr_val))
+        return list_elem
+
+    @classmethod
+    def find_elements_by_id(cls, elem, id_val):
+        &#34;&#34;&#34; Returns all html elements having id attribute
+
+        Args:
+            elem (HTMLElement): HTML element
+            id_val (str): id attribute value
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        return cls.find_elements_by_attr(elem, &#39;id&#39;, id_val)
+
+    @classmethod
+    def find_elements_by_tag_name(cls, element, name):
+        &#34;&#34;&#34; Return HTML elements having the same tag name
+
+        Args:
+            element (HTMLElement): HTML element
+            name (string): HTML element tag name
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        list_elem = []
+        if name == element.tag_name:
+            list_elem.append(element)
+
+        for child in element.value:
+            if not isinstance(child, str):
+                list_elem.extend(cls.find_elements_by_tag_name(child, name))
+        return list_elem</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="html_framework.HTMLElement"><code class="flex name class">
+<span>class <span class="ident">HTMLElement</span></span>
+<span>(</span><span>tag_name, attrs=None, val=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to act as HTML framework that initiate, append, render, and find elements </p>
+<p>Construct all the necessary attributes for the HTMLElement object</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>tag_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>HTML tag name</dd>
+<dt><strong><code>attrs</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>HTML element attributes. Defaults to None.</dd>
+</dl>
+<p>val (HTMLElement | str | list): HTML element values. Defaults to None.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="html_framework.TagNameError" href="#html_framework.TagNameError">TagNameError</a></code></dt>
+<dd>Raise custom exception when having invalid tag name</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HTMLElement:
+    &#34;&#34;&#34; A class to act as HTML framework that initiate, append, render, and find elements &#34;&#34;&#34;
+    def __init__(self, tag_name, attrs=None, val=None):
+        &#34;&#34;&#34; Construct all the necessary attributes for the HTMLElement object
+
+        Args:
+            tag_name (str): HTML tag name
+            attrs (dict, optional): HTML element attributes. Defaults to None.
+            val (HTMLElement | str | list): HTML element values. Defaults to None.
+
+        Raises:
+            TagNameError: Raise custom exception when having invalid tag name
+        &#34;&#34;&#34;
+        if tag_name not in TagNameError.valid_tag_names:
+            raise TagNameError(tag_name)
+        self.tag_name = tag_name
+        self.attrs = attrs or {}
+        self.value = []
+        self.elem_id = attrs.get(&#39;id&#39;, None)
+
+        self.handle_element_value(self, val)
+
+    @classmethod
+    def append(cls, element, val):
+        &#34;&#34;&#34;Append val to the given element
+
+        Args:
+            element (HTMLElement): HTML element to append to
+            val (str | HTMLElement | list): HTML element value to be appended
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+        &#34;&#34;&#34;
+        cls.handle_element_value(element, val)
+
+    @classmethod
+    def handle_element_value(cls, element, val):
+        &#34;&#34;&#34;Handle appending a value(or values) to the given element
+        considering value data type and custom exceptions
+
+        Args:
+            element (HTMLElement): HTML element to append to
+            val (str | HTMLElement | list): HTML element value to be appended
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+        &#34;&#34;&#34;
+        if not isinstance(val, list):
+            val = [val] if val else []
+        for appended_elem in val:
+            if isinstance(appended_elem, str):
+                continue
+            if list_elems_with_id:= cls.find_elements_by_id(appended_elem, element.elem_id):
+                if list_elems_with_id:
+                    raise SameIdException(
+                        f&#34;Shouldn&#39;t have same id value {element.elem_id} for more than one element&#34;)
+
+        if isinstance(val, list):
+            element.value.extend(val)
+        else:
+            element.value = val
+
+    @classmethod
+    def render(cls, element, level=0):
+        &#34;&#34;&#34; Traverse the given element to create HTML DOM syntax
+
+        Args:
+            element (HTMLElement | str | list): HTML element to start traverse from
+            level (int, optional): HTML Element level in tree. Defaults to 0.
+
+        Returns:
+            str: HTML syntax tree
+        &#34;&#34;&#34;
+        if not element:
+            return None
+
+        indentation = &#39; &#39;*4*level
+        html = &#39;&#39;
+        if level == 0:
+            html += &#34;&lt;!DOCTYPE html&gt;\n&#34;
+        html += f&#39;{indentation}&lt;{element.tag_name}&#39;
+
+        if element.attrs:
+            html +=&#39;&#39;.join(f&#34; {key}=&#39;{val}&#39;&#34;
+                    if isinstance(val, str) else f&#34; {key}={val}&#34;
+                        for key, val in element.attrs.items())
+
+        html+= &#39;&gt;&#39;
+        for child in element.value:
+            html+= f&#39;{child}&#39; if isinstance(child, str) else f&#39;\n{cls.render(child, level+1)}&#39;
+        if len(element.value) &gt;= 1 and isinstance(element.value[0], cls):
+            html += f&#39;{indentation}&lt;/{element.tag_name}&gt;\n&#39;
+        else:
+            html += f&#39;&lt;/{element.tag_name}&gt;\n&#39;
+
+        if level == 0:
+            print(html)
+        return html
+
+    @classmethod
+    def render_html_file(cls, element, file_name):
+        &#34;&#34;&#34; Render HTML syntax created into an html file
+
+        Args:
+            element (HTMLElement)
+        &#34;&#34;&#34;
+        try:
+            with open(file_name, &#39;w&#39;, encoding = &#39;utf-8&#39;) as file:
+                file.write(cls.render(element))
+
+        except (FileNotFoundError, IOError) as error:
+            print(f&#34;{type(error)}: {error}&#34;)
+
+    @classmethod
+    def find_elements_by_attr(cls, elem, attr_key, attr_val):
+        &#34;&#34;&#34; Returns all html elements having the same attribute value for a specific key attribute
+
+        Args:
+            elem (HTMLElement): HTML element
+            attr_key (str): attribute key
+            attr_val (str | number): attribute value
+
+        Raises:
+            SameIdException: Raise custom exception when having elements with the same id value
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        if not isinstance(elem, HTMLElement):
+            return []
+        list_elem = []
+        if (attr_key, attr_val) in elem.attrs.items():
+            list_elem.append(elem)
+
+        for child in elem.value:
+            if not isinstance(child, str):
+                list_elem.extend(cls.find_elements_by_attr(child, attr_key, attr_val))
+        return list_elem
+
+    @classmethod
+    def find_elements_by_id(cls, elem, id_val):
+        &#34;&#34;&#34; Returns all html elements having id attribute
+
+        Args:
+            elem (HTMLElement): HTML element
+            id_val (str): id attribute value
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        return cls.find_elements_by_attr(elem, &#39;id&#39;, id_val)
+
+    @classmethod
+    def find_elements_by_tag_name(cls, element, name):
+        &#34;&#34;&#34; Return HTML elements having the same tag name
+
+        Args:
+            element (HTMLElement): HTML element
+            name (string): HTML element tag name
+
+        Returns:
+            list: list of HTML elements
+        &#34;&#34;&#34;
+        list_elem = []
+        if name == element.tag_name:
+            list_elem.append(element)
+
+        for child in element.value:
+            if not isinstance(child, str):
+                list_elem.extend(cls.find_elements_by_tag_name(child, name))
+        return list_elem</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="html_framework.HTMLElement.append"><code class="name flex">
+<span>def <span class="ident">append</span></span>(<span>element, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Append val to the given element</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>element</code></strong> :&ensp;<code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></dt>
+<dd>HTML element to append to</dd>
+</dl>
+<p>val (str | HTMLElement | list): HTML element value to be appended</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="html_framework.SameIdException" href="#html_framework.SameIdException">SameIdException</a></code></dt>
+<dd>Raise custom exception when having elements with the same id value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def append(cls, element, val):
+    &#34;&#34;&#34;Append val to the given element
+
+    Args:
+        element (HTMLElement): HTML element to append to
+        val (str | HTMLElement | list): HTML element value to be appended
+
+    Raises:
+        SameIdException: Raise custom exception when having elements with the same id value
+    &#34;&#34;&#34;
+    cls.handle_element_value(element, val)</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.find_elements_by_attr"><code class="name flex">
+<span>def <span class="ident">find_elements_by_attr</span></span>(<span>elem, attr_key, attr_val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all html elements having the same attribute value for a specific key attribute</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>elem</code></strong> :&ensp;<code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></dt>
+<dd>HTML element</dd>
+<dt><strong><code>attr_key</code></strong> :&ensp;<code>str</code></dt>
+<dd>attribute key</dd>
+</dl>
+<p>attr_val (str | number): attribute value</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="html_framework.SameIdException" href="#html_framework.SameIdException">SameIdException</a></code></dt>
+<dd>Raise custom exception when having elements with the same id value</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list of HTML elements</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def find_elements_by_attr(cls, elem, attr_key, attr_val):
+    &#34;&#34;&#34; Returns all html elements having the same attribute value for a specific key attribute
+
+    Args:
+        elem (HTMLElement): HTML element
+        attr_key (str): attribute key
+        attr_val (str | number): attribute value
+
+    Raises:
+        SameIdException: Raise custom exception when having elements with the same id value
+
+    Returns:
+        list: list of HTML elements
+    &#34;&#34;&#34;
+    if not isinstance(elem, HTMLElement):
+        return []
+    list_elem = []
+    if (attr_key, attr_val) in elem.attrs.items():
+        list_elem.append(elem)
+
+    for child in elem.value:
+        if not isinstance(child, str):
+            list_elem.extend(cls.find_elements_by_attr(child, attr_key, attr_val))
+    return list_elem</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.find_elements_by_id"><code class="name flex">
+<span>def <span class="ident">find_elements_by_id</span></span>(<span>elem, id_val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all html elements having id attribute</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>elem</code></strong> :&ensp;<code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></dt>
+<dd>HTML element</dd>
+<dt><strong><code>id_val</code></strong> :&ensp;<code>str</code></dt>
+<dd>id attribute value</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list of HTML elements</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def find_elements_by_id(cls, elem, id_val):
+    &#34;&#34;&#34; Returns all html elements having id attribute
+
+    Args:
+        elem (HTMLElement): HTML element
+        id_val (str): id attribute value
+
+    Returns:
+        list: list of HTML elements
+    &#34;&#34;&#34;
+    return cls.find_elements_by_attr(elem, &#39;id&#39;, id_val)</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.find_elements_by_tag_name"><code class="name flex">
+<span>def <span class="ident">find_elements_by_tag_name</span></span>(<span>element, name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return HTML elements having the same tag name</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>element</code></strong> :&ensp;<code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></dt>
+<dd>HTML element</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>string</code></dt>
+<dd>HTML element tag name</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list of HTML elements</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def find_elements_by_tag_name(cls, element, name):
+    &#34;&#34;&#34; Return HTML elements having the same tag name
+
+    Args:
+        element (HTMLElement): HTML element
+        name (string): HTML element tag name
+
+    Returns:
+        list: list of HTML elements
+    &#34;&#34;&#34;
+    list_elem = []
+    if name == element.tag_name:
+        list_elem.append(element)
+
+    for child in element.value:
+        if not isinstance(child, str):
+            list_elem.extend(cls.find_elements_by_tag_name(child, name))
+    return list_elem</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.handle_element_value"><code class="name flex">
+<span>def <span class="ident">handle_element_value</span></span>(<span>element, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle appending a value(or values) to the given element
+considering value data type and custom exceptions</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>element</code></strong> :&ensp;<code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></dt>
+<dd>HTML element to append to</dd>
+</dl>
+<p>val (str | HTMLElement | list): HTML element value to be appended</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="html_framework.SameIdException" href="#html_framework.SameIdException">SameIdException</a></code></dt>
+<dd>Raise custom exception when having elements with the same id value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def handle_element_value(cls, element, val):
+    &#34;&#34;&#34;Handle appending a value(or values) to the given element
+    considering value data type and custom exceptions
+
+    Args:
+        element (HTMLElement): HTML element to append to
+        val (str | HTMLElement | list): HTML element value to be appended
+
+    Raises:
+        SameIdException: Raise custom exception when having elements with the same id value
+    &#34;&#34;&#34;
+    if not isinstance(val, list):
+        val = [val] if val else []
+    for appended_elem in val:
+        if isinstance(appended_elem, str):
+            continue
+        if list_elems_with_id:= cls.find_elements_by_id(appended_elem, element.elem_id):
+            if list_elems_with_id:
+                raise SameIdException(
+                    f&#34;Shouldn&#39;t have same id value {element.elem_id} for more than one element&#34;)
+
+    if isinstance(val, list):
+        element.value.extend(val)
+    else:
+        element.value = val</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.render"><code class="name flex">
+<span>def <span class="ident">render</span></span>(<span>element, level=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Traverse the given element to create HTML DOM syntax</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt>element (HTMLElement | str | list): HTML element to start traverse from</dt>
+<dt><strong><code>level</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>HTML Element level in tree. Defaults to 0.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>HTML syntax tree</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def render(cls, element, level=0):
+    &#34;&#34;&#34; Traverse the given element to create HTML DOM syntax
+
+    Args:
+        element (HTMLElement | str | list): HTML element to start traverse from
+        level (int, optional): HTML Element level in tree. Defaults to 0.
+
+    Returns:
+        str: HTML syntax tree
+    &#34;&#34;&#34;
+    if not element:
+        return None
+
+    indentation = &#39; &#39;*4*level
+    html = &#39;&#39;
+    if level == 0:
+        html += &#34;&lt;!DOCTYPE html&gt;\n&#34;
+    html += f&#39;{indentation}&lt;{element.tag_name}&#39;
+
+    if element.attrs:
+        html +=&#39;&#39;.join(f&#34; {key}=&#39;{val}&#39;&#34;
+                if isinstance(val, str) else f&#34; {key}={val}&#34;
+                    for key, val in element.attrs.items())
+
+    html+= &#39;&gt;&#39;
+    for child in element.value:
+        html+= f&#39;{child}&#39; if isinstance(child, str) else f&#39;\n{cls.render(child, level+1)}&#39;
+    if len(element.value) &gt;= 1 and isinstance(element.value[0], cls):
+        html += f&#39;{indentation}&lt;/{element.tag_name}&gt;\n&#39;
+    else:
+        html += f&#39;&lt;/{element.tag_name}&gt;\n&#39;
+
+    if level == 0:
+        print(html)
+    return html</code></pre>
+</details>
+</dd>
+<dt id="html_framework.HTMLElement.render_html_file"><code class="name flex">
+<span>def <span class="ident">render_html_file</span></span>(<span>element, file_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Render HTML syntax created into an html file</p>
+<h2 id="args">Args</h2>
+<p>element (HTMLElement)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def render_html_file(cls, element, file_name):
+    &#34;&#34;&#34; Render HTML syntax created into an html file
+
+    Args:
+        element (HTMLElement)
+    &#34;&#34;&#34;
+    try:
+        with open(file_name, &#39;w&#39;, encoding = &#39;utf-8&#39;) as file:
+            file.write(cls.render(element))
+
+    except (FileNotFoundError, IOError) as error:
+        print(f&#34;{type(error)}: {error}&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="html_framework.SameIdException"><code class="flex name class">
+<span>class <span class="ident">SameIdException</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create custom exception</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>Exception</code></strong> :&ensp;<code>class</code></dt>
+<dd>Base Exception class</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SameIdException(Exception):
+    &#34;&#34;&#34; Create custom exception
+
+    Args:
+        Exception (class): Base Exception class
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="html_framework.TagNameError"><code class="flex name class">
+<span>class <span class="ident">TagNameError</span></span>
+<span>(</span><span>tag_name, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create custom exception</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>Exception</code></strong> :&ensp;<code>class</code></dt>
+<dd>Base Exception class</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Exception message</dd>
+</dl>
+<p>Construct attributes for the TagNameError object</p>
+<h2 id="args_1">Args</h2>
+<dl>
+<dt><strong><code>tag_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>HTML tag name</dd>
+<dt><strong><code>args</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The tuple of arguments given to the exception constructor</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TagNameError(Exception):
+    &#34;&#34;&#34; Create custom exception
+
+    Args:
+        Exception (class): Base Exception class
+
+    Returns:
+        str: Exception message
+    &#34;&#34;&#34;
+    valid_tag_names = [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;, &#39;p&#39;, &#39;strong&#39;, &#39;abbr&#39;, &#39;a&#39;, &#39;big&#39;,
+                    &#39;b&#39;, &#39;html&#39;, &#39;head&#39;, &#39;body&#39;, &#39;form&#39;, &#39;input&#39;, &#39;em&#39;, &#39;dd&#39;, &#39;dl&#39;, &#39;dt&#39;, &#39;i&#39;,
+                    &#39;li&#39;, &#39;ol&#39;, &#39;marquee&#39;, &#39;strike&#39;, &#39;table&#39;, &#39;th&#39;, &#39;td&#39;, &#39;tr&#39;, &#39;tt&#39;, &#39;u&#39;, &#39;title&#39;,
+                    &#39;!--&#39;, &#39;address&#39;, &#39;article&#39;, &#39;aside&#39;, &#39;audio&#39;, &#39;bdi&#39;, &#39;bdo&#39;, &#39;blockquote&#39;,
+                    &#39;button&#39;, &#39;canvas&#39;, &#39;caption&#39;, &#39;cite&#39;, &#39;code&#39;, &#39;colgroup&#39;, &#39;text&#39;, &#39;data&#39;,
+                    &#39;datalist&#39;, &#39;del&#39;, &#39;details&#39;, &#39;dfn&#39;, &#39;dialog&#39;, &#39;div&#39;, &#39;em&#39;, &#39;embed&#39;, &#39;fieldset&#39;,
+                    &#39;figure&#39;,  &#39;figcaption&#39;, &#39;footer&#39;, &#39;header&#39;, &#39;i&#39;, &#39;iframe&#39;, &#39;ins&#39;, &#39;kbd&#39;,
+                    &#39;legend&#39;, &#39;label&#39;, &#39;main&#39;, &#39;map&#39;, &#39;mark&#39;, &#39;meter&#39;, &#39;nav&#39;, &#39;noscript&#39;, &#39;object&#39;,
+                    &#39;optgroup&#39;, &#39;option&#39;, &#39;output&#39;, &#39;picture&#39;, &#39;pre&#39;, &#39;progress&#39;, &#39;q&#39;, &#39;rp&#39;, &#39;rt&#39;,
+                    &#39;ruby&#39;, &#39;s&#39;, &#39;samp&#39;, &#39;script&#39;, &#39;section&#39;, &#39;select&#39;, &#39;small&#39;, &#39;span&#39;, &#39;style&#39;,
+                    &#39;sub&#39;, &#39;summary&#39;, &#39;sup&#39;, &#39;svg&#39;, &#39;tbody&#39;, &#39;template&#39;, &#39;textarea&#39;, &#39;tfoot&#39;,
+                    &#39;thead&#39;, &#39;time&#39;, &#39;ul&#39;, &#39;var&#39;, &#39;video&#39;, &#39;wbr&#39;, &#39;!DOCTYPE&#39;, &#39;br&#39;, &#39;embed&#39;, &#39;hr&#39;,
+                    &#39;img&#39;, &#39;link&#39;, &#39;input&#39;, &#39;menu&#39;, &#39;area&#39;, &#39;source&#39;, &#39;base&#39;, &#39;col&#39;, &#39;meta&#39;,
+                    &#39;param&#39;, &#39;track&#39;]
+
+    def __init__(self, tag_name, *args):
+        &#34;&#34;&#34; Construct attributes for the TagNameError object
+
+        Args:
+            tag_name (str): HTML tag name
+            args (tuple): The tuple of arguments given to the exception constructor
+        &#34;&#34;&#34;
+        # Call the base class constructor with the parameters it needs
+        super().__init__(args)
+        self.tag_name = tag_name
+
+    def __str__(self):
+        &#34;&#34;&#34; Return Exception message
+
+        Returns:
+            str: Exception message
+        &#34;&#34;&#34;
+        return f&#39;Tag name {self.tag_name} is not valid, please specify a valid tag name&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="html_framework.TagNameError.valid_tag_names"><code class="name">var <span class="ident">valid_tag_names</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="html_framework.HTMLElement" href="#html_framework.HTMLElement">HTMLElement</a></code></h4>
+<ul class="">
+<li><code><a title="html_framework.HTMLElement.append" href="#html_framework.HTMLElement.append">append</a></code></li>
+<li><code><a title="html_framework.HTMLElement.find_elements_by_attr" href="#html_framework.HTMLElement.find_elements_by_attr">find_elements_by_attr</a></code></li>
+<li><code><a title="html_framework.HTMLElement.find_elements_by_id" href="#html_framework.HTMLElement.find_elements_by_id">find_elements_by_id</a></code></li>
+<li><code><a title="html_framework.HTMLElement.find_elements_by_tag_name" href="#html_framework.HTMLElement.find_elements_by_tag_name">find_elements_by_tag_name</a></code></li>
+<li><code><a title="html_framework.HTMLElement.handle_element_value" href="#html_framework.HTMLElement.handle_element_value">handle_element_value</a></code></li>
+<li><code><a title="html_framework.HTMLElement.render" href="#html_framework.HTMLElement.render">render</a></code></li>
+<li><code><a title="html_framework.HTMLElement.render_html_file" href="#html_framework.HTMLElement.render_html_file">render_html_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="html_framework.SameIdException" href="#html_framework.SameIdException">SameIdException</a></code></h4>
+</li>
+<li>
+<h4><code><a title="html_framework.TagNameError" href="#html_framework.TagNameError">TagNameError</a></code></h4>
+<ul class="">
+<li><code><a title="html_framework.TagNameError.valid_tag_names" href="#html_framework.TagNameError.valid_tag_names">valid_tag_names</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
