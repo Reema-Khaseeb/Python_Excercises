@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
+rootdir: /home/dell/Downloads/internhsip1/ASAL Backend task1 encryption/training/find_the_eq_for_enc_dec/solution
+plugins: cov-3.0.0
+collected 4 items
+
+test_encryption.py ....                                                  [100%]
+
+============================== 4 passed in 0.01s ===============================
