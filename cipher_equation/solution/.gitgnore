@@ -1,9 +1,0 @@
-__pycache__/
-
-.pytest_cache
-.pytest_cache/
-
-# Environments
-.venv
-venv/
-
